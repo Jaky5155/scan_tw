@@ -34,12 +34,15 @@ jobs:
           GO111MODULE: on
         run: |
           go install github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+          cd /home/runner/ && git clone https://github.com/projectdiscovery/nuclei-templates.git
+          cd /home/runner/nuclei-templates && git clone https://github.com/ExpLangcn/NucleiTP.git
+          cd /home/runner/nuclei-templates && git clone https://github.com/ayadim/Nuclei-bug-hunter.git
           
         shell: bash
         
       - name: Running nuclei scaning
         run: |
-          nuclei -l input/target.txt -t /root/nuclei-templates -o output/vuln.txt | tee output/vuln.txt
+          nuclei -l input/target.txt -t /home/runner/nuclei-templates/  -es info -o output/vuln.txt | tee output/vuln.txt
         shell: bash
 
       - name: Sorting the output results
