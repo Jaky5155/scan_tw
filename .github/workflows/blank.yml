@@ -34,9 +34,6 @@ jobs:
           GO111MODULE: on
         run: |
           go install github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
-          git clone https://github.com/projectdiscovery/nuclei-templates.git
-          cd /root/nuclei-templates && git clone https://github.com/ExpLangcn/NucleiTP.git
-          cd /root/nuclei-templates && git clone https://github.com/ayadim/Nuclei-bug-hunter.git
           
         shell: bash
         
