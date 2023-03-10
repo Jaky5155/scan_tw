@@ -43,7 +43,7 @@ jobs:
         
       - name: Running nuclei scaning
         run: |
-          nuclei -l input/target.txt -o output/vuln.txt | tee output/vuln.txt
+          nuclei -l input/target.txt -t /root/nuclei-templates -o output/vuln.txt | tee output/vuln.txt
         shell: bash
 
       - name: Sorting the output results
